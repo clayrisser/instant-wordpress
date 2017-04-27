@@ -1,5 +1,5 @@
 CWD := $(shell readlink -en $(dir $(word $(words $(MAKEFILE_LIST)),$(MAKEFILE_LIST))))
-IMAGE := "jamrizzi/wordpress-env:latest"
+IMAGE := "jamrizzi/instant-wordpress:latest"
 DOCKERFILE := $(CWD)/Dockerfile
 
 .PHONY: all
