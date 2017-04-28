@@ -13,7 +13,7 @@ ENV WORDPRESS_TITLE="Instant WordPress"
 ENV WORDPRESS_ADMIN_USER=admin
 ENV WORDPRESS_ADMIN_EMAIL=admin@example.com
 ENV WORDPRESS_ADMIN_PASSWORD=hellowordpress
-ENV WORDPRESS_URL=localhost:8080
+ENV WORDPRESS_URL=localhost:8888
 
 RUN apt-get update && apt-get install -y python python-pip
 RUN curl -O https://raw.githubusercontent.com/wp-cli/builds/gh-pages/phar/wp-cli.phar && \
