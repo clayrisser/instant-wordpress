@@ -32,5 +32,17 @@ def install():
     --admin_user=''' + os.environ['WORDPRESS_ADMIN_USER'] + ''' \
     --admin_email=''' + os.environ['WORDPRESS_ADMIN_EMAIL'] + ''' \
     --admin_password=''' + os.environ['WORDPRESS_ADMIN_PASSWORD'])
+    if os.environ['DEBUG'] == 'true':
+        enable_debug()
+
+def enable_debug():
+    lines = []
+    with open('/var/www/html/wp-config.php', 'r') as infile:
+        for line in infile:
+            line = line.replace('define(\'WP_DEBUG\', false);', 'define(\'WP_DEBUG\', true);')
+            lines.append(line)
+    with open('/var/www/html/wp-config.php', 'w') as outfile:
+        for line in lines:
+            outfile.write(line)
 
 main()

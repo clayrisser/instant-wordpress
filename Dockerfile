@@ -14,8 +14,9 @@ ENV WORDPRESS_ADMIN_USER=admin
 ENV WORDPRESS_ADMIN_EMAIL=admin@example.com
 ENV WORDPRESS_ADMIN_PASSWORD=hellowordpress
 ENV WORDPRESS_URL=localhost:8888
+ENV DEBUG=false
 
-RUN apt-get update && apt-get install -y python python-pip
+RUN apt-get update && apt-get install -y python python-pip vim curl zip unzip
 RUN curl -O https://raw.githubusercontent.com/wp-cli/builds/gh-pages/phar/wp-cli.phar && \
     php wp-cli.phar --allow-root --info && \
     chmod +x wp-cli.phar && \
