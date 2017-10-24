@@ -37,12 +37,13 @@ def install():
 
 def enable_debug():
     lines = []
-    with open('/var/www/html/wp-config.php', 'r') as infile:
-        for line in infile:
+    with open('/var/www/html/wp-config.php', 'r') as f:
+        for line in f:
             line = line.replace('define(\'WP_DEBUG\', false);', 'define(\'WP_DEBUG\', true);')
             lines.append(line)
-    with open('/var/www/html/wp-config.php', 'w') as outfile:
-        for line in lines:
-            outfile.write(line)
+        f.close()
+    with open('/var/www/html/wp-config.php', 'w') as f:
+        f.writelines(lines)
+        f.close()
 
 main()
